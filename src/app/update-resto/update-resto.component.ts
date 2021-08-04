@@ -10,25 +10,29 @@ import {RestoService} from '../resto.service'
 })
 export class UpdateRestoComponent implements OnInit {
   alert:boolean=false;
+
   editResto= new FormGroup({
     name: new FormControl(''),
     address: new FormControl(''),
     email: new FormControl('')
   })
   constructor(private router:ActivatedRoute, private resto: RestoService) { }
+ 
   collection=[];
+  index=0
+  
   ngOnInit() {
     console.log(this.router.snapshot.params.id)
     var Id = this.router.snapshot.params.id
     var item
-    this.resto.getList().subscribe((result)=>{
-      this.collection = result['collection'];
+   this.collection= this.resto.getList()
         for (var i = 0; i<this.collection.length; i++)
         {
           if( this.collection[i].id == Id)
           {
             item = this.collection[i]
             console.log(item)
+            this.index=i
           }
         }
       this.editResto= new FormGroup({
@@ -36,18 +40,18 @@ export class UpdateRestoComponent implements OnInit {
         address: new FormControl(item['address']),
         email: new FormControl(item['email'])
       })
-    })
     
+    // this.resto.getCurrentResto(this.router.snapshot.params.id).subscribe(result=>{})
   }
-
   collections()
   {
-    console.log(this.editResto.value)
-    this.resto.updateResto(this.router.snapshot.params.id,this.editResto.value).subscribe((result)=>{
-      console.log(result)
+    this.resto.updateResto(this.index, this.editResto.value)
+
+    // this.resto.updateResto(this.router.snapshot.params.id,this.editResto.value).subscribe((result)=>{
+    //   console.log(result)
       this.alert=true
       this.editResto.reset({})
-    })
+    // })
   }
   closeAlert()
   {

@@ -19,13 +19,13 @@ alert:boolean=false
   }
   collectResto()
   {
-    this.collection.push(this.addResto.value)
-    console.log(this.collection)
+    this.resto.saveResto(this.addResto.value)
     // this.resto.saveResto(this.addResto.value).subscribe((result)=>{
       this.alert=true
       this.addResto.reset({})
     // })
   }
+  
   closeAlert()
   {
     this.alert=false
