@@ -1,0 +1,34 @@
+{
+ "collection": [
+  {
+    "id": 1,
+    "name": "KFC restaurant",
+    "address": "noida sector 50",
+    "email": "kfc@test.com"
+  },
+  {
+    "id": 2,
+    "name": "OM restaurant",
+    "address": "delhi sector 20",
+    "email": "om@test.com"
+  },
+  {
+    "id": 3,
+    "name": "burger king restaurant",
+    "address": "gurgao sector 30",
+    "email": "burger@test.com"
+  },
+  {
+    "id": 4,
+    "name": "domino restaurant",
+    "address": "saltlake sector 5",
+    "email": "domino@test.com"
+  },
+  {
+    "id": 5,
+    "name": "haldiram restaurant",
+    "address": "dwarika sector 50",
+    "email": "haldiram@test.com"
+  }
+]
+}
